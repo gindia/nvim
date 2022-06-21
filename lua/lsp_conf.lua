@@ -10,7 +10,7 @@ local servers = {
     -- 'csharp_ls',
     -- 'jdtls',
     -- 'lemminx',
-    -- 'cmake',
+    'cmake',
     -- 'jsonls',
     -- 'html',
     -- 'cssls',
