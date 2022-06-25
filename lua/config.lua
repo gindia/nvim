@@ -17,8 +17,6 @@ cmd("set keywordprg=")
 map('', 'K', '<NOP>', { noremap = true })
 map('', '<S-Q>', '<NOP>', { noremap = true }) -- disable ex mode
 
--- use C not CPlusPlus for header files
-cmd("let c_syntax_for_h=1")
 
 -- remove trailing whitespace
 cmd("autocmd BufWritePre * :silent! %s/\\s\\+$//e")
