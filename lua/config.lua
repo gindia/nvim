@@ -96,7 +96,7 @@ vim.g.gruvbox_transparent_bg = true
 
 vim.cmd([[colorscheme gruvbox]])
 
-require 'lsp_conf'
+-- require 'lsp_conf'
 
 -- telescope conf {{{
 require('telescope').setup {

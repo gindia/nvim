@@ -145,7 +145,7 @@ cmp.setup {
     -- You should specify your *installed* sources.
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'path' },
+        --{ name = 'path' },
         { name = 'buffer' },
     },
 }

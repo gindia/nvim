@@ -23,15 +23,20 @@ return require'packer'.startup( function()
     use 'nvim-telescope/telescope.nvim'
 
     -- lsp
-    use 'neovim/nvim-lspconfig'
+    --use 'neovim/nvim-lspconfig'
+
 
     -- autocomplete
     use {
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
+        {'ms-jpq/coq_nvim', branch ='coq'},
+        {'ms-jpq/coq.artifacts', branch ='artifacts'},
     }
+    -- use {
+    --   'hrsh7th/nvim-cmp',
+    --   'hrsh7th/cmp-nvim-lsp',
+    --   'hrsh7th/cmp-buffer',
+    --   'hrsh7th/cmp-path',
+    -- }
 
     -- git
     use 'tpope/vim-fugitive'
