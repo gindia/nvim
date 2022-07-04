@@ -169,6 +169,8 @@ vim.api.nvim_set_keymap('n', '<leader>qq', '<cmd>lua toggle_qf()<CR>', opt)
 
 -- }}}
 
+require 'auto_complete'
+
 -- set last
 vim.opt.exrc   = true
 vim.opt.secure = true

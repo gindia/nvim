@@ -8,10 +8,13 @@ return require'packer'.startup( function()
     }
 
     -- colorscheme
-    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+    use {
+        "ellisonleao/gruvbox.nvim",
+        requires = {"rktjmp/lush.nvim"}
+    }
 
-    -- syntax
-    -- use 'sheerun/vim-polyglot'
+    -- git
+    use 'tpope/vim-fugitive'
 
     -- Treesitter
     use {
@@ -19,29 +22,15 @@ return require'packer'.startup( function()
         run = ':TSUpdate'
     }
 
+    -- where am I !
+    use 'romgrk/nvim-treesitter-context'
+
     -- telescope
     use 'nvim-telescope/telescope.nvim'
 
-    -- lsp
-    --use 'neovim/nvim-lspconfig'
-
-
     -- autocomplete
-    use {
-        {'ms-jpq/coq_nvim', branch ='coq'},
-        {'ms-jpq/coq.artifacts', branch ='artifacts'},
-    }
-    -- use {
-    --   'hrsh7th/nvim-cmp',
-    --   'hrsh7th/cmp-nvim-lsp',
-    --   'hrsh7th/cmp-buffer',
-    --   'hrsh7th/cmp-path',
-    -- }
-
-    -- git
-    use 'tpope/vim-fugitive'
-
-    -- where am I !
-    use 'romgrk/nvim-treesitter-context'
+    use 'hrsh7th/cmp-omni'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/nvim-cmp'
 
 end)
