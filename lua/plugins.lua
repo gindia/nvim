@@ -29,6 +29,8 @@ return require'packer'.startup( function()
     use 'nvim-telescope/telescope.nvim'
 
     -- autocomplete
+    use 'quangnguyen30192/cmp-nvim-tags'
+    use 'delphinus/cmp-ctags'
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'

@@ -16,7 +16,9 @@ cmp.setup({
     }),
 
     sources = {{ name = 'buffer' }
-              ,{ name = 'omni'   }
+              ,{{ name = 'ctags'  }}
+              ,{{ name = 'tags'   }}
+              --,{ name = 'omni'   }
               }
 })
 

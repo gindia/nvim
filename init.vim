@@ -18,3 +18,5 @@ set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
 noremap <silent>gd <C-]>
+
+set laststatus=3
