@@ -5,16 +5,16 @@
 
 -- a list of language servers to enable
 local servers = {
-    'clangd',
-    -- 'rust_analyzer',
+    -- 'clangd',
+    'rust_analyzer',
     -- 'csharp_ls',
     -- 'jdtls',
     -- 'lemminx',
-    'cmake',
+    -- 'cmake',
     -- 'jsonls',
     -- 'html',
     -- 'cssls',
-    'pyright',
+    -- 'pyright',
     -- 'tsserver',
     -- 'gopls',
     -- 'zls',
@@ -56,8 +56,6 @@ for _, lsp in ipairs(servers) do
             debounce_text_changes = 150,
         }
     }
-
-    -- coq[lsp].setup(coq.lsp_ensure_capabilities(...))
 end
 
 -- man stands for manual
@@ -98,16 +96,6 @@ lsp_config.sumneko_lua.setup {
 }
 
 
---disable diagnostics
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
---     vim.lsp.diagnostic.on_publish_diagnostics, {
---        virtual_text = false,
---        signs = false,
---        update_in_insert = false,
---        underline = false,
---     }
--- )
-
 -- disable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -117,35 +105,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
        underline = false,
     }
 )
-
---------------------------------------------------------------------------------------------------
---- Auto complete
---------------------------------------------------------------------------------------------------
-local cmp = require('cmp')
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
-cmp.setup {
-
-    -- You can set mapping if you want.
-    mapping = {
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        }),
-    },
-
-    -- You should specify your *installed* sources.
-    sources = {
-        { name = 'nvim_lsp' },
-        --{ name = 'path' },
-        { name = 'buffer' },
-    },
-}

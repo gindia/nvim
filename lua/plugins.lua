@@ -16,6 +16,9 @@ return require'packer'.startup( function()
     -- git
     use 'tpope/vim-fugitive'
 
+    -- lsp
+    use 'neovim/nvim-lspconfig'
+
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -31,6 +34,7 @@ return require'packer'.startup( function()
     -- autocomplete
     use 'quangnguyen30192/cmp-nvim-tags'
     use 'delphinus/cmp-ctags'
+    use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-omni'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'

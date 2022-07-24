@@ -17,6 +17,7 @@ nnoremap <silent><F9>  <cmd>silent make run\|redraw!<cr>
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
-noremap <silent>gd <C-]>
+autocmd FileType c   noremap <silent>gd <C-]>
+autocmd FileType cpp noremap <silent>gd <C-]>
 
 set laststatus=3

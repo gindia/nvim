@@ -5,7 +5,7 @@ vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
-map('', '<F12>', '<cmd>wa<cr><cmd>make build<CR>', { noremap = true, silent = true })
+map('', '<F12>', '<cmd>wa<cr><cmd>make<CR>', { noremap = true, silent = true })
 
 vim.g.mapleader = " "
 map('', '<leader>w', '<C-w>', { noremap = true })
@@ -16,7 +16,6 @@ map('', '<leader>bd', '<cmd>%bd!|e#<CR>', { noremap = true, silent = true })
 cmd("set keywordprg=")
 map('', 'K', '<NOP>', { noremap = true })
 map('', '<S-Q>', '<NOP>', { noremap = true }) -- disable ex mode
-
 
 -- remove trailing whitespace
 cmd("autocmd BufWritePre * :silent! %s/\\s\\+$//e")
@@ -96,7 +95,7 @@ vim.g.gruvbox_transparent_bg = true
 
 vim.cmd([[colorscheme gruvbox]])
 
--- require 'lsp_conf'
+require 'lsp_conf'
 
 -- telescope conf {{{
 require('telescope').setup {
