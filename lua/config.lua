@@ -5,8 +5,6 @@ vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
-map('', '<F12>', '<cmd>wa<cr><cmd>make<CR>', { noremap = true, silent = true })
-
 vim.g.mapleader = " "
 map('', '<leader>w', '<C-w>', { noremap = true })
 

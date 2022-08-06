@@ -19,6 +19,9 @@ return require'packer'.startup( function()
     -- lsp
     use 'neovim/nvim-lspconfig'
 
+    -- language specific plugin
+    use 'rust-lang/rust.vim'
+
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
