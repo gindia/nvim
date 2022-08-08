@@ -16,9 +16,9 @@ set grepformat^=%f:%l:%c:%m
 
 "use C not C++ for .h
 let c_syntax_for_h=1
-autocmd Filetype c,cpp nnoremap <silent><F12> <cmd>silent make build\|redraw!<cr>
-autocmd Filetype c,cpp nnoremap <silent><F10> <cmd>silent make tests\|redraw!<cr>
-autocmd Filetype c,cpp nnoremap <silent><F9>  <cmd>silent make run\|redraw!<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent make build\|redraw!<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent make tests\|redraw!<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>silent make run\|redraw!<cr>
 autocmd FileType c,cpp noremap <silent>gd <C-]>
 
 autocmd FileType rust,toml :compiler cargo
