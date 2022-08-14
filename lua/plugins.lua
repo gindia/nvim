@@ -42,4 +42,7 @@ return require'packer'.startup( function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/nvim-cmp'
 
+    -- snippets
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip'
 end)

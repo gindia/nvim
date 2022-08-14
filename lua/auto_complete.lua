@@ -16,11 +16,12 @@ cmp.setup({
     }),
 
     sources = {{ name = 'buffer'   }
-              ,{ name = 'ctags'    }
-              ,{ name = 'tags'     }
+              -- ,{ name = 'ctags'    }
+              -- ,{ name = 'tags'     }
               ,{ name = 'nvim_lsp' }
+              --,{ name = 'luasnip'  }
               --,{ name = 'omni'   }
-              }
+              },
 })
 
 return cmp

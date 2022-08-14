@@ -166,6 +166,7 @@ vim.api.nvim_set_keymap('n', '<leader>qq', '<cmd>lua toggle_qf()<CR>', opt)
 
 -- }}}
 
+-- require 'snippets_conf'
 require 'auto_complete'
 
 -- set last
