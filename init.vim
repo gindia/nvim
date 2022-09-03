@@ -10,18 +10,26 @@ EOF
 
 set laststatus=3
 
+"set iskeyword-=_
+
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
 "use C not C++ for .h
 "let c_syntax_for_h=1
-autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent make build\|redraw!<cr>
-autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent make tests\|redraw!<cr>
-autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>silent make run\|redraw!<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent Make tests\|redraw!<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>silent Make run\|redraw!<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent Make build<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent Make tests<cr>
+autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>silent Make run<cr>
 autocmd Filetype c,cpp nnoremap <silent><leader>h  <cmd>ClangdSwitchSourceHeader<cr>
-autocmd FileType c,cpp noremap  <silent>gt <C-]>
+autocmd FileType c,cpp noremap  <silent>gr <C-]>
 
 autocmd FileType rust,toml :compiler cargo
-autocmd Filetype rust,toml nnoremap <silent><F12> <cmd>silent make build\|redraw!<cr>
-autocmd Filetype rust,toml nnoremap <silent><F10> <cmd>silent make test\|redraw!<cr>
-autocmd Filetype rust,toml nnoremap <silent><F9>  <cmd>silent make run\|redraw!<cr>
+"autocmd Filetype rust,toml nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>
+"autocmd Filetype rust,toml nnoremap <silent><F10> <cmd>silent Make test\|redraw!<cr>
+"autocmd Filetype rust,toml nnoremap <silent><F9>  <cmd>silent Make run\|redraw!<cr>
+autocmd Filetype rust,toml nnoremap <silent><F12> <cmd>silent Make build<cr>
+autocmd Filetype rust,toml nnoremap <silent><F10> <cmd>silent Make test<cr>
+autocmd Filetype rust,toml nnoremap <silent><F9>  <cmd>silent Make run<cr>

@@ -1,6 +1,12 @@
 return require'packer'.startup( function()
     use 'wbthomason/packer.nvim'
 
+    --
+    use 'tpope/vim-dispatch'
+
+    -- better w
+    use 'chaoren/vim-wordmotion'
+
     -- debs
     use {
       'nvim-lua/popup.nvim',
