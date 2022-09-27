@@ -11,8 +11,8 @@ map('', '<leader>w', '<C-w>', { noremap = true })
 map('', '<C-n>', '<cmd>Explore<CR>', { noremap = true, silent = true })
 map('', '<leader>bd', '<cmd>%bd!|e#<CR>', { noremap = true, silent = true })
 
-cmd("set keywordprg=")
-map('', 'K', '<NOP>', { noremap = true })
+-- cmd("set keywordprg=")
+-- map('', 'K', '<NOP>', { noremap = true })
 map('', '<S-Q>', '<NOP>', { noremap = true }) -- disable ex mode
 
 -- remove trailing whitespace
