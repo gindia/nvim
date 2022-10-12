@@ -17,8 +17,8 @@ local servers = {
     -- 'cssls',
     -- 'pyright',
     -- 'tsserver',
-    -- 'gopls',
-    -- 'zls',
+    'gopls',
+    'zls',
 }
 
 local on_attach = function(_, bufnr)

@@ -5,7 +5,9 @@ return require'packer'.startup( function()
     use 'tpope/vim-dispatch'
 
     -- better w
-    use 'chaoren/vim-wordmotion'
+    -- use 'chaoren/vim-wordmotion'
+
+    use 'sheerun/vim-polyglot'
 
     -- debs
     use {
@@ -29,13 +31,13 @@ return require'packer'.startup( function()
     use 'rust-lang/rust.vim'
 
     -- Treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter',
+    --     run = ':TSUpdate'
+    -- }
 
     -- where am I !
-    use 'romgrk/nvim-treesitter-context'
+    -- use 'romgrk/nvim-treesitter-context'
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'
@@ -49,6 +51,6 @@ return require'packer'.startup( function()
     use 'hrsh7th/nvim-cmp'
 
     -- snippets
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip'
+    -- use 'saadparwaiz1/cmp_luasnip'
+    -- use 'L3MON4D3/LuaSnip'
 end)

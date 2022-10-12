@@ -17,14 +17,19 @@ set grepformat^=%f:%l:%c:%m
 
 "use C not C++ for .h
 "let c_syntax_for_h=1
+
+nnoremap <silent><F12> <cmd>Make build<cr>
+nnoremap <silent><F10> <cmd>Make tests<cr>
+nnoremap <silent><F9>  <cmd>Make run<cr>
+
 "autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent Make tests\|redraw!<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>silent Make run\|redraw!<cr>
-autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>Make build<cr>
-autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>Make tests<cr>
-autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>Make run<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>Make build<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>Make tests<cr>
+"autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>Make run<cr>
 "autocmd Filetype c,cpp nnoremap <silent><leader>h  <cmd>ClangdSwitchSourceHeader<cr>
-autocmd FileType c,cpp noremap  <silent>gd <C-]>
+"autocmd FileType c,cpp noremap  <silent>gd <C-]>
 
 autocmd FileType rust,toml :compiler cargo
 "autocmd Filetype rust,toml nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>
