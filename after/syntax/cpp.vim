@@ -6,3 +6,9 @@ syntax keyword cppTypes
             \ v2 v3 v4 versor m4 iv2 iv3
 
 hi def link cppTypes            Type
+
+
+syntax keyword cppSpecial
+            \ internal local global
+
+hi def link cppSpecial Special

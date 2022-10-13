@@ -28,7 +28,7 @@ nnoremap <silent><F9>  <cmd>Make run<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>Make build<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>Make tests<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F9>  <cmd>Make run<cr>
-"autocmd Filetype c,cpp nnoremap <silent><leader>h  <cmd>ClangdSwitchSourceHeader<cr>
+autocmd Filetype c,cpp nnoremap <silent><leader>h  <cmd>ClangdSwitchSourceHeader<cr>
 "autocmd FileType c,cpp noremap  <silent>gd <C-]>
 
 autocmd FileType rust,toml :compiler cargo
