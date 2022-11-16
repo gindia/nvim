@@ -7,15 +7,15 @@
 local servers = {
     'clangd',
     'rust_analyzer',
-    'dartls',
+    -- 'dartls',
     -- 'csharp_ls',
     -- 'jdtls',
     -- 'lemminx',
-    'cmake',
+    -- 'cmake',
     -- 'jsonls',
     -- 'html',
     -- 'cssls',
-    -- 'pyright',
+    'pyright',
     -- 'tsserver',
     'gopls',
     'zls',
@@ -44,7 +44,7 @@ local on_attach = function(_, bufnr)
     buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format { async = true }' ]]
     vim.cmd [[ command! Cleanc :silent %s/\r//g ]]
 end
 
