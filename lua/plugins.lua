@@ -21,6 +21,8 @@ return require'packer'.startup( function()
         requires = {"rktjmp/lush.nvim"}
     }
 
+    use 'NTBBloodbath/doom-one.nvim'
+
     -- git
     use 'tpope/vim-fugitive'
 
@@ -31,13 +33,13 @@ return require'packer'.startup( function()
     use 'rust-lang/rust.vim'
 
     -- Treesitter
-    -- use {
-    --     'nvim-treesitter/nvim-treesitter',
-    --     run = ':TSUpdate'
-    -- }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     -- where am I !
-    -- use 'romgrk/nvim-treesitter-context'
+    use 'romgrk/nvim-treesitter-context'
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'

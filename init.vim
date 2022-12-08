@@ -10,13 +10,14 @@ EOF
 
 set laststatus=3
 
+set shell=/bin/zsh
 "set iskeyword-=_
 
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
 "use C not C++ for .h
-"let c_syntax_for_h=1
+let c_syntax_for_h=1
 
 nnoremap <silent><F12> <cmd>Make build<cr>
 nnoremap <silent><F10> <cmd>Make tests<cr>

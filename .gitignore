@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+
+!after/
+!after/**
+!lua/
+!lua/**
+!init.vim
