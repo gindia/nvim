@@ -3,7 +3,7 @@ syntax keyword cTypes
             \ u8 u16 u32 u64
             \ f32 f64
             \ b32
-            \ vec2 vec3 vec4 versor mat4 ivec2 ivec3
+            \ vec2 vec3 vec4 versor mat4 ivec2 ivec3 quad
 
 hi def link cTypes            Type
 
