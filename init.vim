@@ -10,7 +10,7 @@ EOF
 
 set laststatus=3
 
-set shell=/bin/zsh
+"set shell=/bin/zsh
 "set iskeyword-=_
 
 set grepprg=rg\ --vimgrep
@@ -21,7 +21,7 @@ let c_syntax_for_h=1
 
 nnoremap <silent><F12> <cmd>Make build<cr>
 nnoremap <silent><F10> <cmd>Make tests<cr>
-nnoremap <silent><F9>  <cmd>Make run<cr>
+nnoremap <silent><F5>  <cmd>Make run<cr>
 
 "autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>
 "autocmd Filetype sh,c,cpp nnoremap <silent><F10> <cmd>silent Make tests\|redraw!<cr>
