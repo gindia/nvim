@@ -15,7 +15,7 @@ local servers = {
     -- 'jsonls',
     -- 'html',
     -- 'cssls',
-    -- 'pyright',
+    'pyright',
     -- 'tsserver',
     -- 'gopls',
     -- 'zls',

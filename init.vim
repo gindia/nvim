@@ -20,7 +20,7 @@ set grepformat^=%f:%l:%c:%m
 let c_syntax_for_h=1
 
 nnoremap <silent><F12> <cmd>Make build<cr>
-nnoremap <silent><F10> <cmd>Make tests<cr>
+"nnoremap <silent><F10> <cmd>Make tests<cr>
 nnoremap <silent><F5>  <cmd>Make run<cr>
 
 "autocmd Filetype sh,c,cpp nnoremap <silent><F12> <cmd>silent Make build\|redraw!<cr>

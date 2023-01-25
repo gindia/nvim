@@ -83,47 +83,47 @@ vim.cmd([[set laststatus=2]])
 
 require 'plugins'
 
--- vim.o.background = 'dark'
--- vim.g.gruvbox_bold = true
--- vim.g.gruvbox_italic = false
--- vim.g.gruvbox_invert_selection = false
--- vim.g.gruvbox_contrast_dark = 'medium'
--- vim.g.gruvbox_italicize_comments = false
--- vim.g.gruvbox_transparent_bg = true
+vim.o.background = 'dark'
+vim.g.gruvbox_bold = true
+vim.g.gruvbox_italic = false
+vim.g.gruvbox_invert_selection = false
+vim.g.gruvbox_contrast_dark = 'medium'
+vim.g.gruvbox_italicize_comments = false
+vim.g.gruvbox_transparent_bg = true
+
+vim.cmd([[colorscheme gruvbox]])
+
+-- require 'doom-one'
+-- -- Add color to cursor
+-- vim.g.doom_one_cursor_coloring = false
+-- -- Set :terminal colors
+-- vim.g.doom_one_terminal_colors = true
+-- -- Enable italic comments
+-- vim.g.doom_one_italic_comments = false
+-- -- Enable TS support
+-- vim.g.doom_one_enable_treesitter = true
+-- -- Color whole diagnostic text or only underline
+-- vim.g.doom_one_diagnostics_text_color = false
+-- -- Enable transparent background
+-- vim.g.doom_one_transparent_background = false
 --
--- vim.cmd([[colorscheme gruvbox]])
-
-require 'doom-one'
--- Add color to cursor
-vim.g.doom_one_cursor_coloring = false
--- Set :terminal colors
-vim.g.doom_one_terminal_colors = true
--- Enable italic comments
-vim.g.doom_one_italic_comments = false
--- Enable TS support
-vim.g.doom_one_enable_treesitter = true
--- Color whole diagnostic text or only underline
-vim.g.doom_one_diagnostics_text_color = false
--- Enable transparent background
-vim.g.doom_one_transparent_background = false
-
--- Pumblend transparency
-vim.g.doom_one_pumblend_enable = false
-vim.g.doom_one_pumblend_transparency = 20
-
--- Plugins integration
-vim.g.doom_one_plugin_neorg = false
-vim.g.doom_one_plugin_barbar = false
-vim.g.doom_one_plugin_telescope = true
-vim.g.doom_one_plugin_neogit = false
-vim.g.doom_one_plugin_nvim_tree = false
-vim.g.doom_one_plugin_dashboard = false
-vim.g.doom_one_plugin_startify = false
-vim.g.doom_one_plugin_whichkey = false
-vim.g.doom_one_plugin_indent_blankline = false
-vim.g.doom_one_plugin_vim_illuminate = false
-vim.g.doom_one_plugin_lspsaga = false
-vim.cmd([[colorscheme doom-one]])
+-- -- Pumblend transparency
+-- vim.g.doom_one_pumblend_enable = false
+-- vim.g.doom_one_pumblend_transparency = 20
+--
+-- -- Plugins integration
+-- vim.g.doom_one_plugin_neorg = false
+-- vim.g.doom_one_plugin_barbar = false
+-- vim.g.doom_one_plugin_telescope = true
+-- vim.g.doom_one_plugin_neogit = false
+-- vim.g.doom_one_plugin_nvim_tree = false
+-- vim.g.doom_one_plugin_dashboard = false
+-- vim.g.doom_one_plugin_startify = false
+-- vim.g.doom_one_plugin_whichkey = false
+-- vim.g.doom_one_plugin_indent_blankline = false
+-- vim.g.doom_one_plugin_vim_illuminate = false
+-- vim.g.doom_one_plugin_lspsaga = false
+-- vim.cmd([[colorscheme doom-one]])
 
 require 'lsp_conf'
 
@@ -151,11 +151,18 @@ require('telescope').setup {
 
 -- require('telescope').load_extension('fzf')
 
+function grep_todo()
+    vim.cmd([[silent grep! TODO\(gindia\)]])
+    return require"telescope.builtin".quickfix()
+end
+
 local opt = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require"telescope.builtin".find_files()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua require"telescope.builtin".live_grep()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require"telescope.builtin".grep_string()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>Telescope builtin<CR>', opt)
+
+vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua grep_todo()<CR>', opt)
 -- }}}
 
 -- treesitter {{{
@@ -164,10 +171,14 @@ require 'nvim-treesitter.configs'.setup {
     -- ignore_install = { "" }, -- List of parsers to ignore installing
     highlight = {
         enable = true, -- false will disable the whole extension
-        -- disable = function(lang, bufnr) -- Disable in large C++ buffers
-        --     return lang == "c" and api.nvim_buf_line_count(bufnr) > 50000
-        -- end,
-        disable = { "c", "cpp" },  -- list of language that will be disabled
+        disable = function(lang, bufnr) -- Disable in large C++ buffers
+            if (lang == "c") or (lang == "cpp") then
+                return vim.api.nvim_buf_line_count(bufnr) > 50000
+            end
+            return false;
+            -- return lang == "c" and api.nvim_buf_line_count(bufnr) > 50000
+        end,
+        -- disable = { "c", "cpp" },  -- list of language that will be disabled
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
