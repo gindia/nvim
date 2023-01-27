@@ -151,18 +151,12 @@ require('telescope').setup {
 
 -- require('telescope').load_extension('fzf')
 
-function grep_todo()
-    vim.cmd([[silent grep! TODO\(gindia\)]])
-    return require"telescope.builtin".quickfix()
-end
-
 local opt = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require"telescope.builtin".find_files()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua require"telescope.builtin".live_grep()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require"telescope.builtin".grep_string()<CR>', opt)
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>Telescope builtin<CR>', opt)
 
-vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua grep_todo()<CR>', opt)
 -- }}}
 
 -- treesitter {{{
@@ -189,6 +183,8 @@ require 'nvim-treesitter.configs'.setup {
 }
 --}}}
 
+require 'auto_complete'
+
 -- quickfix {{{
 
 toggle_qf = function()
@@ -213,8 +209,15 @@ vim.api.nvim_set_keymap('n', '<leader>qq', '<cmd>lua toggle_qf()<CR>', opt)
 
 -- }}}
 
--- require 'snippets_conf'
-require 'auto_complete'
+-- TODO(gindia):
+
+function grep_todo()
+    vim.cmd([[call setqflist([], 'f')]])
+    vim.cmd([[call setqflist([], 'a', {'lines' : systemlist('rg --vimgrep TODO\(gindia\)')})]])
+    require"telescope.builtin".quickfix()
+end
+
+vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua grep_todo()<CR>', opt)
 
 -- set last
 vim.opt.exrc   = true
