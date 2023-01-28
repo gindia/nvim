@@ -68,62 +68,65 @@ cmd("set updatetime=100")
 cmd("set shortmess+=c")
 
 cmd("set signcolumn=number")
-cmd("set number")
+cmd("set nonumber")
 
 cmd("set foldmethod=marker")
 
 vim.cmd([[set wildmenu]])
 vim.cmd([[set wildmode=full]])
 
+vim.cmd([[set laststatus=3]])
+
 vim.cmd([[set statusline=]])
 vim.cmd([[set statusline+=\ %F\ %M\ %Y\ %R]])
 vim.cmd([[set statusline+=%=]])
 vim.cmd([[set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%]])
-vim.cmd([[set laststatus=2]])
+
+vim.cmd([[set winbar=%=%m\ %y\ %f]])
 
 require 'plugins'
 
-vim.o.background = 'dark'
-vim.g.gruvbox_bold = true
-vim.g.gruvbox_italic = false
-vim.g.gruvbox_invert_selection = false
-vim.g.gruvbox_contrast_dark = 'medium'
-vim.g.gruvbox_italicize_comments = false
-vim.g.gruvbox_transparent_bg = true
-
-vim.cmd([[colorscheme gruvbox]])
-
--- require 'doom-one'
--- -- Add color to cursor
--- vim.g.doom_one_cursor_coloring = false
--- -- Set :terminal colors
--- vim.g.doom_one_terminal_colors = true
--- -- Enable italic comments
--- vim.g.doom_one_italic_comments = false
--- -- Enable TS support
--- vim.g.doom_one_enable_treesitter = true
--- -- Color whole diagnostic text or only underline
--- vim.g.doom_one_diagnostics_text_color = false
--- -- Enable transparent background
--- vim.g.doom_one_transparent_background = false
+-- vim.o.background = 'dark'
+-- vim.g.gruvbox_bold = true
+-- vim.g.gruvbox_italic = false
+-- vim.g.gruvbox_invert_selection = false
+-- vim.g.gruvbox_contrast_dark = 'medium'
+-- vim.g.gruvbox_italicize_comments = false
+-- vim.g.gruvbox_transparent_bg = true
 --
--- -- Pumblend transparency
--- vim.g.doom_one_pumblend_enable = false
--- vim.g.doom_one_pumblend_transparency = 20
---
--- -- Plugins integration
--- vim.g.doom_one_plugin_neorg = false
--- vim.g.doom_one_plugin_barbar = false
--- vim.g.doom_one_plugin_telescope = true
--- vim.g.doom_one_plugin_neogit = false
--- vim.g.doom_one_plugin_nvim_tree = false
--- vim.g.doom_one_plugin_dashboard = false
--- vim.g.doom_one_plugin_startify = false
--- vim.g.doom_one_plugin_whichkey = false
--- vim.g.doom_one_plugin_indent_blankline = false
--- vim.g.doom_one_plugin_vim_illuminate = false
--- vim.g.doom_one_plugin_lspsaga = false
--- vim.cmd([[colorscheme doom-one]])
+-- vim.cmd([[colorscheme gruvbox]])
+
+require 'doom-one'
+-- Add color to cursor
+vim.g.doom_one_cursor_coloring = false
+-- Set :terminal colors
+vim.g.doom_one_terminal_colors = true
+-- Enable italic comments
+vim.g.doom_one_italic_comments = false
+-- Enable TS support
+vim.g.doom_one_enable_treesitter = true
+-- Color whole diagnostic text or only underline
+vim.g.doom_one_diagnostics_text_color = false
+-- Enable transparent background
+vim.g.doom_one_transparent_background = false
+
+-- Pumblend transparency
+vim.g.doom_one_pumblend_enable = false
+vim.g.doom_one_pumblend_transparency = 20
+
+-- Plugins integration
+vim.g.doom_one_plugin_neorg = false
+vim.g.doom_one_plugin_barbar = false
+vim.g.doom_one_plugin_telescope = true
+vim.g.doom_one_plugin_neogit = false
+vim.g.doom_one_plugin_nvim_tree = false
+vim.g.doom_one_plugin_dashboard = false
+vim.g.doom_one_plugin_startify = false
+vim.g.doom_one_plugin_whichkey = false
+vim.g.doom_one_plugin_indent_blankline = false
+vim.g.doom_one_plugin_vim_illuminate = false
+vim.g.doom_one_plugin_lspsaga = false
+vim.cmd([[colorscheme doom-one]])
 
 require 'lsp_conf'
 
@@ -199,8 +202,8 @@ toggle_qf = function()
         vim.cmd "cclose"
         return
     end
-    if not
-        vim.tbl_isempty(vim.fn.getqflist()) then
+
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
         vim.cmd "Copen"
     end
 end
@@ -209,8 +212,6 @@ vim.api.nvim_set_keymap('n', '<leader>qq', '<cmd>lua toggle_qf()<CR>', opt)
 
 -- }}}
 
--- TODO(gindia):
-
 function grep_todo()
     vim.cmd([[call setqflist([], 'f')]])
     vim.cmd([[call setqflist([], 'a', {'lines' : systemlist('rg --vimgrep TODO\(gindia\)')})]])
@@ -218,6 +219,11 @@ function grep_todo()
 end
 
 vim.api.nvim_set_keymap('n', '<leader>to', '<cmd>lua grep_todo()<CR>', opt)
+
+function make_run()
+    vim.cmd[[new]]
+    vim.cmd[[term make run]]
+end
 
 -- set last
 vim.opt.exrc   = true

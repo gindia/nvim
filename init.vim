@@ -8,8 +8,6 @@ lua << EOF
 require 'config'
 EOF
 
-set laststatus=3
-
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
@@ -17,6 +15,7 @@ set grepformat^=%f:%l:%c:%m
 let c_syntax_for_h=1
 
 nnoremap <silent><F12> <cmd>Make build<cr>
+"nnoremap <silent><F5>  <cmd>lua make_run()<cr>
 nnoremap <silent><F5>  <cmd>Make run<cr>
 
 autocmd Filetype c,cpp nnoremap <silent><leader>h  <cmd>ClangdSwitchSourceHeader<cr>
