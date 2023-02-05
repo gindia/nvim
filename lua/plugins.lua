@@ -23,6 +23,10 @@ return require'packer'.startup( function()
 
     use 'NTBBloodbath/doom-one.nvim'
 
+    use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+    use "savq/melange-nvim"
+    use "pbrisbin/vim-colors-off"
+
     -- git
     use 'tpope/vim-fugitive'
 
