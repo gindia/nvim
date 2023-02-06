@@ -1,24 +1,9 @@
------------------------------------------------
--- LSP Configs
--- Omar M.Gindia 2021.
------------------------------------------------
-
 -- a list of language servers to enable
 local servers = {
     'clangd',
-    -- 'rust_analyzer',
-    -- 'dartls',
-    -- 'csharp_ls',
-    -- 'jdtls',
-    -- 'lemminx',
-    -- 'cmake',
-    -- 'jsonls',
-    -- 'html',
-    -- 'cssls',
     'pyright',
     -- 'tsserver',
     -- 'gopls',
-    'zls',
 }
 
 local on_attach = function(_, bufnr)

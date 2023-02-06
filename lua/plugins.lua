@@ -26,15 +26,4 @@ return require'packer'.startup( function()
     use 'ms-jpq/coq_nvim'
     use 'ms-jpq/coq.artifacts'
     use 'ms-jpq/coq.thirdparty'
-
-    -- use 'quangnguyen30192/cmp-nvim-tags'
-    -- use 'delphinus/cmp-ctags'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-omni'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/nvim-cmp'
-
-    -- snippets
-    -- use 'saadparwaiz1/cmp_luasnip'
-    -- use 'L3MON4D3/LuaSnip'
 end)
