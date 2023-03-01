@@ -9,6 +9,7 @@ return require'packer'.startup( function()
 
     -- colorscheme
     use "savq/melange-nvim"
+    use 'folke/tokyonight.nvim'
 
     -- lsp
     use 'neovim/nvim-lspconfig'
