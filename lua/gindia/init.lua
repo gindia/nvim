@@ -12,7 +12,7 @@ map('', '<C-n>', '<cmd>Explore<CR>', { noremap = true, silent = true })
 map('', '<leader>bd', '<cmd>%bd!|e#<CR>', { noremap = true, silent = true })
 
 -- cmd("set keywordprg=")
--- map('', 'K', '<NOP>', { noremap = true })
+map('', 'K', '<NOP>', { noremap = true })
 map('', '<S-Q>', '<NOP>', { noremap = true }) -- disable ex mode
 
 -- remove trailing whitespace
@@ -75,14 +75,14 @@ cmd("set foldmethod=marker")
 vim.cmd([[set wildmenu]])
 vim.cmd([[set wildmode=full]])
 
-vim.cmd([[set laststatus=3]])
+vim.cmd([[set laststatus=2]])
 
 vim.cmd([[set statusline=]])
-vim.cmd([[set statusline+=\ %F\ %M\ %Y\ %R]])
+vim.cmd([[set statusline+=\ %f\ %y\ %m]])
 vim.cmd([[set statusline+=%=]])
-vim.cmd([[set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%]])
+vim.cmd([[set statusline+=\ %l:%p%%]])
 
-vim.cmd([[set winbar=%=%m\ %y\ %f]])
+-- vim.cmd([[set winbar=%=%m\ %y\ %f]])
 
 require 'gindia.plugins'
 
@@ -107,7 +107,7 @@ require("tokyonight").setup({
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-  hide_inactive_statusline = true, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
   dim_inactive = true, -- dims inactive windows
   lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 
@@ -162,27 +162,28 @@ vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>Telescope builtin<CR>', opt)
 -- }}}
 
 -- treesitter {{{
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = "comment", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    -- ignore_install = { "" }, -- List of parsers to ignore installing
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = function(lang, bufnr) -- Disable in large C++ buffers
-            if (lang == "c") or (lang == "cpp") then
-                return vim.api.nvim_buf_line_count(bufnr) > 50000
-            end
-            return false;
-            -- return lang == "c" and api.nvim_buf_line_count(bufnr) > 50000
-        end,
-        -- disable = { "c", "cpp" },  -- list of language that will be disabled
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-    },
 
-}
+-- require 'nvim-treesitter.configs'.setup {
+--     ensure_installed = "comment", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--     -- ignore_install = { "" }, -- List of parsers to ignore installing
+--     highlight = {
+--         enable = true, -- false will disable the whole extension
+--         disable = function(lang, bufnr) -- Disable in large C++ buffers
+--             if (lang == "c") or (lang == "cpp") then
+--                 return vim.api.nvim_buf_line_count(bufnr) > 50000
+--             end
+--             return false;
+--             -- return lang == "c" and api.nvim_buf_line_count(bufnr) > 50000
+--         end,
+--         -- disable = { "c", "cpp" },  -- list of language that will be disabled
+--         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+--         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+--         -- Using this option may slow down your editor, and you may see some duplicate highlights.
+--         -- Instead of true it can also be a list of languages
+--         additional_vim_regex_highlighting = false,
+--     },
+--}
+
 --}}}
 
 -- quickfix {{{

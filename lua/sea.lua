@@ -22,5 +22,5 @@ function floating_make_run()
     window = vim.api.nvim_open_win(buffer, true, opts)
 
     vim.api.nvim_win_set_option(window, 'winhl', 'Normal:MyHighlight')
-    vim.cmd([[term make run]])
+    vim.cmd([[term build.bat run]])
 end

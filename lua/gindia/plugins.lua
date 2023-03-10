@@ -11,20 +11,23 @@ return require'packer'.startup( function()
     use "savq/melange-nvim"
     use 'folke/tokyonight.nvim'
 
+    -- syntax and shit
+    use "sheerun/vim-polyglot"
+
     -- lsp
-    use 'neovim/nvim-lspconfig'
+    -- use 'neovim/nvim-lspconfig'
 
     -- Treesitter
-    use 'nvim-treesitter/nvim-treesitter'
+    --use 'nvim-treesitter/nvim-treesitter'
 
     -- where am I !
-    use 'romgrk/nvim-treesitter-context'
+    --use 'romgrk/nvim-treesitter-context'
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'
 
     -- autocomplete
-    use 'ms-jpq/coq_nvim'
-    use 'ms-jpq/coq.artifacts'
-    use 'ms-jpq/coq.thirdparty'
+    -- use 'ms-jpq/coq_nvim'
+    -- use 'ms-jpq/coq.artifacts'
+    -- use 'ms-jpq/coq.thirdparty'
 end)
